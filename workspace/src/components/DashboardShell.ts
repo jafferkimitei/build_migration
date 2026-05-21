@@ -1,5 +1,5 @@
-import { MetricCard } from "@ui/MetricCard";
-import { StatusPill } from "@ui/StatusPill";
+import { MetricCard } from "./cards/MetricCard";
+import { StatusPill } from "./cards/StatusPill";
 
 type DashboardShellProps = {
   title: string;
@@ -11,7 +11,7 @@ export function DashboardShell(props: DashboardShellProps): string {
   const revenue = MetricCard({
     label: "Revenue",
     value: "KES 15.2M",
-    trend: "up"
+    trend: "up",
   });
 
   const status = StatusPill({ status: "healthy" });
@@ -23,6 +23,6 @@ export function DashboardShell(props: DashboardShellProps): string {
     `<nav>${props.navSnapshot}</nav>`,
     revenue,
     status,
-    `</main>`
+    `</main>`,
   ].join("");
 }

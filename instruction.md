@@ -31,17 +31,17 @@ The alias configuration in `/workspace/workspace/tsconfig.json` should match the
 - `@config/*` should resolve from `/workspace/workspace/src/config`.
 - `@ui/*` should resolve from `/workspace/workspace/src/components/cards`.
 
-Component imports should be case-correct for a case-sensitive Linux build.
+Component imports should be case-correct for a case-sensitive Linux build. The migrated UI card components live in `/workspace/workspace/src/components/cards`, so imports that reference those components must resolve through the configured `@ui/*` alias without relying on incorrect filename casing.
 
 ## Environment and metadata behavior
 
-The public environment helper should ask for the public site URL, but not the analytics write key. The configuration of analytics is not required. Even if the analytics key is missing, the environment helper should return some valid public environment object.
+The public environment helper should require the public site URL, but it must not fail when the analytics write key is missing. Analytics configuration is optional. If an analytics key is present, the helper may expose it; if it is absent, the helper should still return a valid public environment object.
 
-The metadata generation should generate stable canonical URLs without having double slashes in the site URL or page path if it does.
+Metadata generation should create stable canonical URLs when the configured site URL has a trailing slash, when a page path has a leading slash, and when the root path `/` is used. Do not produce accidental double slashes in the final canonical URL path.
 
 ## Routing and navigation behavior
 
-The navigation model should avoid duplicate visible routes and should normalize child links so they consistently start with a single `/`.
+The navigation model should avoid duplicate visible routes. Child links should be normalized so they consistently start with a single `/`, and migrated links such as reports should not remain as bare relative paths.
 
 The route manifest should preserve the root route `/` and normalize child routes such as dashboard and reports to a single leading slash with no trailing slash.
 

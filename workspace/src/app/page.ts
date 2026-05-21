@@ -1,7 +1,7 @@
-import { DashboardShell } from "@/components/DashboardShell";
-import { getPublicEnv } from "@config/env";
-import { buildMetadata } from "@lib/metadata";
-import { getPrimaryNavigation } from "@lib/navigation";
+import { DashboardShell } from "../components/DashboardShell";
+import { getPublicEnv } from "../config/env";
+import { buildMetadata } from "../lib/metadata";
+import { getPrimaryNavigation } from "../lib/navigation";
 
 export function renderHomePage(): string {
   const env = getPublicEnv();

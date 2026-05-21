@@ -7,9 +7,9 @@ expert_time_estimate_hours = 3
 
 difficulty_explanation = "This task requires diagnosing a strict TypeScript migration with multiple interacting frontend build failures: broken path aliases, case-sensitive component imports, optional environment validation, canonical URL normalization, navigation deduplication, and route manifest cleanup. A correct solution requires understanding TypeScript module resolution, strict compiler behavior, and production frontend configuration patterns rather than applying a single obvious patch."
 
-solution_explanation = "The intended solution repairs the TypeScript configuration so aliases match the migrated source tree, fixes case-sensitive UI imports, keeps analytics configuration optional, normalizes canonical URL creation, deduplicates navigation entries, normalizes navigation hrefs, preserves the root route, normalizes child route manifest entries, and leaves the package typecheck command intact."
+solution_explanation = "The intended solution performs targeted repairs to the existing migrated project: update the TypeScript alias map, correct the case-sensitive UI import, keep analytics configuration optional, normalize canonical URL creation, remove duplicate navigation entries, normalize navigation hrefs, preserve the root route, normalize child route manifest entries, and leave the package typecheck command intact."
 
-verification_explanation = "The verifier runs pytest. The tests inspect package scripts, run npm run typecheck, validate tsconfig alias mappings, inspect component imports, verify optional analytics environment behavior through source checks, and confirm metadata, navigation, and route normalization rules. The test runner writes reward 1 only when all pytest tests pass."
+verification_explanation = "The verifier runs pytest. The tests inspect package scripts, run npm run typecheck, validate tsconfig alias mappings, check for stale case-unsafe imports and legacy alias targets, verify optional analytics environment behavior through source-level behavior checks, and confirm metadata, navigation, and route normalization rules. The test runner writes reward 1 only when all pytest tests pass."
 
 schema_version = "1.1"
 

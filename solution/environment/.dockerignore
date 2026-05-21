@@ -1,9 +1,0 @@
-node_modules/
-dist/
-.logs/
-output/
-__pycache__/
-*.pyc
-.DS_Store
-tests/
-solution/

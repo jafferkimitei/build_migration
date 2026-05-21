@@ -7,7 +7,7 @@ export type NavigationItem = {
 const NAVIGATION: NavigationItem[] = [
   { label: "Dashboard", href: "/dashboard", requiresAuth: true },
   { label: "Reports", href: "/reports", requiresAuth: true },
-  { label: "Settings", href: "/settings", requiresAuth: true }
+  { label: "Settings", href: "/settings", requiresAuth: true },
 ];
 
 function normalizeHref(href: string): string {

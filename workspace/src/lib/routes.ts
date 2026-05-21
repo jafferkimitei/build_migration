@@ -11,12 +11,7 @@ const ROUTES: RouteManifestEntry[] = [
 ];
 
 export function normalizeRoute(route: string): string {
-  if (route === "/") {
-    return "/";
-  }
-
-  const trimmed = route.replace(/^\/+/, "").replace(/\/+$/, "");
-  return `/${trimmed}`;
+  return route.replace("//", "/").replace(/\/$/, "");
 }
 
 export function getRouteManifest(): RouteManifestEntry[] {

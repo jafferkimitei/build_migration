@@ -1,0 +1,39 @@
+author_name = "JAFFER KIMITEI"
+author_email = "jafferkimitei@gmail.com"
+category = "frontend-engineering"
+tags = ["typescript", "frontend-build", "path-aliases", "migration", "nextjs-style"]
+difficulty = "hard"
+expert_time_estimate_hours = 3
+
+difficulty_explanation = "This task requires diagnosing a strict TypeScript migration with multiple interacting frontend build failures: broken path aliases, case-sensitive component imports, optional environment validation, canonical URL normalization, navigation deduplication, and route manifest cleanup. A correct solution requires understanding TypeScript module resolution, strict compiler behavior, and production frontend configuration patterns rather than applying a single obvious patch."
+
+solution_explanation = "The intended solution repairs the TypeScript configuration so aliases match the migrated source tree, fixes case-sensitive UI imports, keeps analytics configuration optional, normalizes canonical URL creation, deduplicates navigation entries, normalizes navigation hrefs, preserves the root route, normalizes child route manifest entries, and leaves the package typecheck command intact."
+
+verification_explanation = "The verifier runs pytest. The tests inspect package scripts, run npm run typecheck, validate tsconfig alias mappings, inspect component imports, verify optional analytics environment behavior through source checks, and confirm metadata, navigation, and route normalization rules. The test runner writes reward 1 only when all pytest tests pass."
+
+schema_version = "1.1"
+
+[task]
+name = "frontend-build-migration-repair"
+description = "Repair a strict TypeScript frontend migration with broken aliases, imports, environment handling, metadata, navigation, and route normalization."
+authors = [{ name = "JAFFER KIMITEI", email = "jafferkimitei@gmail.com" }]
+keywords = ["typescript", "frontend", "migration", "build-tooling"]
+
+[metadata]
+difficulty_explanation = "This is a multi-issue frontend migration repair task covering TypeScript path resolution, case-sensitive imports, environment validation, URL generation, and route consistency."
+category = "frontend-engineering"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+os = "linux"
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = true
